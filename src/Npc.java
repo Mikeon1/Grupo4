@@ -9,8 +9,10 @@ public class Npc {
     private String recompensa;
     private int nivelminimo;
     private final int vidamaxima;
+    private String fala;
+
 //construtor
-     public Npc ( String nome, int vida, int dano, int defesa, double esquiva, String missão , String recompensa , int nivelminimo){
+     public Npc ( String nome, int vida, int dano, int defesa, double esquiva, String missão , String recompensa , int nivelminimo , String fala){
          this.nome=nome;
          this.vida=vida;
          this.dano=dano;
@@ -20,15 +22,14 @@ public class Npc {
          this.recompensa=recompensa;
          this.nivelminimo=nivelminimo;
          this.vidamaxima=vida;
-
+         this.fala=fala;
      }
+
      //métodos
      public String Getnome(){
          return nome;
      }
-    public String Getmissão(){
-        return missão;
-    }
+    public String Getmissão() {return missão}
     public int Getvida(){
         return vida;
     }
@@ -53,7 +54,7 @@ public class Npc {
     public void setdano(int danonovo){
         dano=danonovo;
     }
-//ações
+
    public void perdervida(int vidaperdida){
          vida =vida - vidaperdida;
          if(vida < 0) {
@@ -66,10 +67,31 @@ public class Npc {
              vida= vidamaxima;
          }
    }
-   //causardano n ta finalizado
-   public void causardano(){
-
+   public void falar(){
+         System.out.println ( nome + ":" + fala);
    }
+
+   public void mostrarinformaçoes(){
+         System.out.println ("nome:" + nome);
+   }
+
+   public void darRecompensa(Protagonista){
+         if(recompensa = null){
+        System.out.println (" Não há nenhuma recompensa.");}
+       else(Protagonista.receberItem(recompensa)){
+           System.out.println (nome + ":" + "entregou" + recompensa.Getnome());
+           recompensa = null;
+       }
+   }
+
+   public void mudarFala,(String novafala){
+         fala = novafala;
+   }
+
+   public void causarDano(int danoCausado){
+         danoCausado = dano;// (+ dano arma + bonus)
+   }
+
 public boolean estarvivo(){
          return vida > 0;
 }
