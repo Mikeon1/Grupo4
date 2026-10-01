@@ -64,4 +64,8 @@ public class Monstro {
         System.out.println(" Vida: " + vida + " /" + VIDAMAX);
         System.out.println(" Dano: " + dano + " /" + " | Defesa: " + defesa);
     }
+    public void Slime extends Monstro{
+
+    }
+
       }
