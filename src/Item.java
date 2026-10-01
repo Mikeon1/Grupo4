@@ -1,61 +1,57 @@
-public class Item {
-    // Variáveis privadas
+import static java.lang.Math.max;
 
-    private String nome; // Identificação do objeto
-    private String tipo; // Tipo do item, ex: Cura, arma
-    private int efeitosItem; // Efeitos do item ex: +50 de HP ou +20 de dano
-    private int durabilidade // Resistência do item
-    private String raridade // Classificação do item, ex: Comum, Raro, Épico
+public class Item {
+
+    // Atributos privados
+
+    private String nome;
+    private String descricao;
+    private String tipo;
+    private int valorCura;
+    private int valorDano;
+    private int quantidade;
 
     // Construtor
 
-    public Item(String nome, String tipo, int efeitosItem, int durabilidade, String raridade){
-
-        this.nome = nome;
-        this.tipo = tipo;
-        this.efeitosItem = efeitosItem;
-        this.durabilidade = durabilidade;
-        this.raridade = raridade;
+    public Item(String nomeRecebido, String descricaoRecebida, String tipoRecebido, int curaRecebida, int danoRecebido) {
+        this.nome = nomeRecebido;
+        this.descricao = descricaoRecebida;
+        this.tipo = tipoRecebido;
+        this.valorCura = max(0, curaRecebida);
+        this.valorDano = max(0, danoRecebido);
+        this.quantidade = 1;
     }
+    // Métodos
 
-    // Getter e Setter
-
-    public String getNome(){
+    public String getNome() {
         return nome;
     }
 
-    public String gettipo(){
-        return tipo;
+    public void mostrarInformacoes() {
+        System.out.println("Item: " + nome);
+        System.out.println("Descrição: " + descricao);
+        System.out.println("Tipo: " + tipo);
+        System.out.println("Quantidade: " + quantidade);
     }
 
-    public int getefeitosItem () {
-        return efeitosItem;
+    public void aumentarQuantidade(int valor){
+        if (valor > 0){
+            quantidade = quantidade + valor;
+        }
     }
 
-    public int getdurabilidade(){
-        return durabilidade;
+    public boolean acabou() {
+        return quantidade <= 0;
     }
 
-    public void setdurabilidade(int novadurabilidade){
-        durabilidade = novadurabilidade;
-    }
+    // Método usar
 
-    public String getraridade(){
-        return raridade;
-    }
-
-    // Ações
-
-    // Desgaste do objeto
-
-    public void perderdurabilidade(int pontos) {
-        durabilidade = durabilidade - pontos;
-
-        if (durabilidade < 0) {
-            durabilidade = 0;
+    public void usar() {
+        if (acabou()) {
+            System.out.println("Este item acabou.");
+            return;
         }
 
-        System.out.println(nome + " foi reparado em " + pontos + " ponto. durabilidade atual: " + durabilidade);
     }
 
 }
