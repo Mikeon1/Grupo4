@@ -46,12 +46,27 @@ public class Item {
 
     // Método usar
 
-    public void usar() {
+    public void usar(Personagem protagonista) {
         if (acabou()) {
             System.out.println("Este item acabou.");
             return;
         }
 
+        if (tipo.equals("CURA")) {
+            int curaReal = protagonista.recuperarVida(valorCura);
+            if (curaReal == 0){
+                System.out.println("A vida já está cheia.");
+                return;
+            }
+            quantidade = quantidade - 1;
+            System.out.println("Vida recuperada: " + curaReal);
+        } else if (tipo.equals("ARMA")) {
+            protagonista.equiparArma(valorDano);
+            System.out.println("Arma equipada: " + nome);
+        }
+        else {
+            System.out.println("Esse item não pode ser usado agora.");
+        }
     }
-
 }
+
