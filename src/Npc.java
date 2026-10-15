@@ -29,7 +29,7 @@ public class Npc {
      public String Getnome(){
          return nome;
      }
-    public String Getmissão() {return missão}
+    public String Getmissão() {return missão;}
     public int Getvida(){
         return vida;
     }
@@ -54,6 +54,9 @@ public class Npc {
     public void setdano(int danonovo){
         dano=danonovo;
     }
+    public String Getfala(){
+        return fala;
+    }
 
    public void perdervida(int vidaperdida){
          vida =vida - vidaperdida;
@@ -75,16 +78,16 @@ public class Npc {
          System.out.println ("nome:" + nome);
    }
 
-   public void darRecompensa(Protagonista){
+  /* public void darRecompensa(Protagonista){
          if(recompensa = null){
         System.out.println (" Não há nenhuma recompensa.");}
        else(Protagonista.receberItem(recompensa)){
            System.out.println (nome + ":" + "entregou" + recompensa.Getnome());
            recompensa = null;
        }
-   }
+   }*/
 
-   public void mudarFala,(String novafala){
+   public void mudarFala(String novafala){
          fala = novafala;
    }
 

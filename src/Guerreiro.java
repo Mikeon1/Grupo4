@@ -1,4 +1,4 @@
-public class Guerreiro extends Npc {
+public class Guerreiro  {
 
     //construtor
 }
