@@ -45,7 +45,7 @@ public class Item {
     }
 
     // Método usar
-
+/*
     public void usar(Personagem protagonista) {
         if (acabou()) {
             System.out.println("Este item acabou.");
@@ -68,5 +68,8 @@ public class Item {
             System.out.println("Esse item não pode ser usado agora.");
         }
     }
+ */
 }
+
+
 
