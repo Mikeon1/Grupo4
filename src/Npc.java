@@ -1,3 +1,6 @@
+import java.util.List;
+import java.util.ArrayList;
+
 public class Npc {
 //atributos
     private String nome;
@@ -5,11 +8,13 @@ public class Npc {
     private int dano;
     private int defesa;
     private double esquiva;
-    private String missão;
+    private String missao;
     private String recompensa;
     private int nivelminimo;
     private final int vidamaxima;
     private String fala;
+    private List<Item> itensAVenda;
+    private List<Integer> precosItens;
 
 //construtor
      public Npc ( String nome, int vida, int dano, int defesa, double esquiva, String missão , String recompensa , int nivelminimo , String fala){
@@ -18,18 +23,20 @@ public class Npc {
          this.dano=dano;
          this.defesa=defesa;
          this.esquiva=esquiva;
-         this.missão=missão;
+         this.missao=missão;
          this.recompensa=recompensa;
          this.nivelminimo=nivelminimo;
          this.vidamaxima=vida;
          this.fala=fala;
+         this.itensAVenda = new ArrayList<>();
+         this.precosItens = new ArrayList<>();
      }
 
      //métodos
      public String Getnome(){
          return nome;
      }
-    public String Getmissão() {return missão;}
+    public String Getmissão() {return missao;}
     public int Getvida(){
         return vida;
     }
@@ -49,7 +56,7 @@ public class Npc {
         return nivelminimo;
     }
     public void setmissão(String missãonova){
-        missão=missãonova;
+        missao=missãonova;
     }
     public void setdano(int danonovo){
         dano=danonovo;
@@ -78,16 +85,37 @@ public class Npc {
          System.out.println ("nome:" + nome);
    }
 
-  /* public void darRecompensa(Protagonista){
+   // METODOS QUE DEPENDEM DE OUTRAS CLASSES!!
+
+ /* public void darRecompensa(Protagonista){
          if(recompensa = null){
         System.out.println (" Não há nenhuma recompensa.");}
        else(Protagonista.receberItem(recompensa)){
            System.out.println (nome + ":" + "entregou" + recompensa.Getnome());
            recompensa = null;
        }
-   }*/
+   }
 
-   public void mudarFala(String novafala){
+  public void adicionarItemLoja(Item item, int preco) {
+      this.itensAVenda.add(item);
+      this.precosItens.add(preco);
+  }
+  public void informacoesLoja(){
+      System.out.println("loja de itens do" + nome );
+      if (itensAVenda.isEmpty()) {
+          System.out.println("Não tenho nada para vender no momento.");
+          return;
+      }
+      for (int a = 0; a < itensAVenda.size(); a++) {
+          Item item = itensAVenda.get(a);
+          int preco = precosItens.get(a);
+          System.out.println("[" + (a + 1) + "] " + Item.GetNome() + " | Preço: " + preco + " moedas");
+      }
+      }
+    }*/
+
+
+    public void mudarFala(String novafala){
          fala = novafala;
    }
 
