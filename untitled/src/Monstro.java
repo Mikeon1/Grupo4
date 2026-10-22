@@ -19,6 +19,7 @@ public class Monstro {
         this.esquiva = esquiva;
         this.VIDAMAX = vida;
     }
+    public int getVida(){ return vida; }
 
     public String getNome() {
         return nome;
