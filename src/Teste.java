@@ -7,6 +7,11 @@ public class Teste {
         pocao.mostrarInformacoes();
         System.out.println("Está esgotado? " + pocao.acabou());
 
+        pocao.aumentarQuantidade(-1);
+
+        System.out.println("Após usar a poção");
+        System.out.println("Está esgotado? " + pocao.acabou());
+
         System.out.println("Testando espada");
         Espada espada = new Espada();
         espada.mostrarInformacoes();
@@ -20,6 +25,8 @@ public class Teste {
         System.out.println("Aumentando a quantidade da poção em +3...");
         pocao.aumentarQuantidade(3);
         pocao.mostrarInformacoes();
+
+
          }
     }
 

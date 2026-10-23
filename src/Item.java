@@ -35,8 +35,9 @@ public class Item {
     }
 
     public void aumentarQuantidade(int valor){
-        if (valor > 0){
-            quantidade = quantidade + valor;
+        quantidade = quantidade + valor;
+        if (valor < 0){
+            quantidade = 0;
         }
     }
 
@@ -69,6 +70,31 @@ public class Item {
         }
     }
  */
+    // Getters
+
+    public String getnome() {
+        return nome;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public int getValorCura() {
+        return valorCura;
+    }
+
+    public int getValorDano() {
+        return valorDano;
+    }
+
+    public int getQuantidade() {
+        return quantidade;
+    }
 }
 
 
