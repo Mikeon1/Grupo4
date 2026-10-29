@@ -1,16 +1,22 @@
 public class Moedas extends Item{
 
-        private int tiposMoedas;
+        private int quantidadeMoedas;
 
-        public Moedas(String tipoMoeda, int valor) {
-            super("Moeda de " + tipoMoeda, "Usada para transações e compras.", "MOEDA", 0, 0);
-            this.tiposMoedas = valor;
+        public Moedas(int quantidadeMoedas){
+            super("Moedas","Usadas para transações","MOEDA",0,0);
+            this.quantidadeMoedas = quantidadeMoedas;
         }
-
-        public int getTiposMoedas() {
-            return tiposMoedas;
-        }
+// Getter e Setter
+    public int getQuantidadeMoedas() {
+        return quantidadeMoedas;
     }
+
+    public void setQuantidadeMoedas(int quantidadeMoedas) {
+        this.quantidadeMoedas = quantidadeMoedas;
+    }
+}
+
+
 
 
 
