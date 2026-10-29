@@ -1,60 +1,58 @@
 import static java.lang.Math.max;
 
 public class Item {
+        // Atributos privados
 
-    // Atributos privados
+        private String Nome;
+        private String descricao;
+        private String tipo;
+        private int valorCura;
+        private int valorDano;
+        private int quantidade;
 
-    private String nome;
-    private String descricao;
-    private String tipo;
-    private int valorCura;
-    private int valorDano;
-    private int quantidade;
+        // Construtor
 
-    // Construtor
-
-    public Item(String nomeRecebido, String descricaoRecebida, String tipoRecebido, int curaRecebida, int danoRecebido) {
-        this.nome = nomeRecebido;
-        this.descricao = descricaoRecebida;
-        this.tipo = tipoRecebido;
-        this.valorCura = max(0, curaRecebida);
-        this.valorDano = max(0, danoRecebido);
-        this.quantidade = 1;
-    }
-    // Métodos
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void mostrarInformacoes() {
-        System.out.println("Item: " + nome);
-        System.out.println("Descrição: " + descricao);
-        System.out.println("Tipo: " + tipo);
-        System.out.println("Quantidade: " + quantidade);
-    }
-
-    public void aumentarQuantidade(int valor){
-        quantidade = quantidade + valor;
-        if (valor < 0){
-            quantidade = 0;
+        public Item(String nomeRecebido, String descricaoRecebida, String tipoRecebido, int curaRecebida, int danoRecebido) {
+            this.Nome = nomeRecebido;
+            this.descricao = descricaoRecebida;
+            this.tipo = tipoRecebido;
+            this.valorCura = max(0, curaRecebida);
+            this.valorDano = max(0, danoRecebido);
+            this.quantidade = 1;
         }
-    }
+        // Métodos
 
-    public boolean acabou() {
-        return quantidade <= 0;
-    }
+        public String GetNome() {
+            return Nome;
+        }
 
-    // Método usar
-/*
-    public void usar(Personagem protagonista) {
+        public void mostrarInformacoes() {
+            System.out.println("Item: " + Nome);
+            System.out.println("Descrição: " + descricao);
+            System.out.println("Tipo: " + tipo);
+            System.out.println("Quantidade: " + quantidade);
+        }
+
+        public void aumentarQuantidade(int valor){
+            if (valor > 0){
+                quantidade = quantidade + valor;
+            }
+        }
+
+        public boolean acabou() {
+            return quantidade <= 0;
+        }
+
+        // Método usar
+
+   /* public void usar( Protagonista) {
         if (acabou()) {
             System.out.println("Este item acabou.");
             return;
         }
 
         if (tipo.equals("CURA")) {
-            int curaReal = protagonista.recuperarVida(valorCura);
+            int curaReal = Protagonista.recuperarVida(valorCura);
             if (curaReal == 0){
                 System.out.println("A vida já está cheia.");
                 return;
@@ -62,40 +60,13 @@ public class Item {
             quantidade = quantidade - 1;
             System.out.println("Vida recuperada: " + curaReal);
         } else if (tipo.equals("ARMA")) {
-            protagonista.equiparArma(valorDano);
-            System.out.println("Arma equipada: " + nome);
+            Protagonista.equiparArma(valorDano);
+            System.out.println("Arma equipada: " + Nome);
         }
         else {
             System.out.println("Esse item não pode ser usado agora.");
         }
+    }*/
+
     }
- */
-    // Getters
-
-    public String getnome() {
-        return nome;
-    }
-
-    public String getDescricao() {
-        return descricao;
-    }
-
-    public String getTipo() {
-        return tipo;
-    }
-
-    public int getValorCura() {
-        return valorCura;
-    }
-
-    public int getValorDano() {
-        return valorDano;
-    }
-
-    public int getQuantidade() {
-        return quantidade;
-    }
-}
-
-
 
