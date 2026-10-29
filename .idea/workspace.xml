@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="3c00edda-8f17-475f-8988-89505e67a410" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Grupo4.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Grupo4/Alquimista.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Grupo4/ArmaduraBasica.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Grupo4/Espada.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Grupo4/Ferreiro.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Grupo4/Guerreiro.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Grupo4/Hugo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Grupo4/Inventario.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Grupo4/Item.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Grupo4/Maria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Grupo4/Moedas.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Grupo4/Npc.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Grupo4/PocaoGrande.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Grupo4/PocaoVida.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Grupo4/Teste.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Grupo4/Texte.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/untitled/RPGCompleto$Bau.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/untitled/RPGCompleto$Efeito.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/untitled/RPGCompleto$Inimigo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/untitled/RPGCompleto$Portal.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/untitled/RPGCompleto$Projetil.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/untitled/RPGCompleto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/untitled/SimuladorForca.class" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "git-widget-placeholder": "main",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0"
+  }
+}]]></component>
+  <component name="TaskManager">
+    <servers />
+  </component>
+</project>
