@@ -119,8 +119,8 @@ public class Npc {
          fala = novafala;
    }
 
-   public void causarDano(int danoCausado){
-         danoCausado = dano;// (+ dano arma + bonus)
+   public void causarDano(int danoCausado ,int valorDano){
+         danoCausado = dano + valorDano;
    }
 
 public boolean estarvivo(){

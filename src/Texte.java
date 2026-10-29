@@ -10,7 +10,7 @@ public class Texte {
         System.out.println(nome);
         System.out.println(fala);
         arg.melhorarArma(nome);
-
+        arg.forjarArma(nome);
 
         Alquimista fulano = new Alquimista("fulano de tal", 30, "nenhuma", "nenhuma", "nenhuma", 1.1);
 
@@ -19,6 +19,7 @@ public class Texte {
         System.out.println(Nome);
         System.out.println(Fala);
         fulano.criarPoção(nome);
+
     }
 
     }

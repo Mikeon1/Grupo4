@@ -14,13 +14,14 @@ public class Ferreiro extends Npc{
         }
         else {System.out.println("desculpa,não deu certo dessa vez");
         }
+
     } public void forjarArma(Protagonista protagonista, String nomeArmaNova, int danoArma, String materialNecessario) {
         System.out.println( Getnome() + "está forjando sua nova arma ");
         if (Math.random() < 0.3) {
-            System.out.println("o ferreiro terminou a forja!, aqui está sua aram");
+            System.out.println("o ferreiro terminou a forja!, aqui está sua arma");
         }
         else {
-            System.out.println("o ferreiro não consegio forjar sua aram");
+            System.out.println("o ferreiro não consegio forjar sua arma");
         }
     }
 

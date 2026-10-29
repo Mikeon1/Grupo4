@@ -20,6 +20,10 @@ public class Item {
             this.valorDano = max(0, danoRecebido);
             this.quantidade = 1;
         }
+    public int GetvalorDano(){
+        return valorDano;
+    }
+    public int GetvalorCura() {return valorCura;}
         // Métodos
 
         public String GetNome() {
@@ -45,7 +49,7 @@ public class Item {
 
         // Método usar
 
-   /* public void usar( Protagonista) {
+    /*public void usar(Protagonista){
         if (acabou()) {
             System.out.println("Este item acabou.");
             return;
@@ -65,8 +69,8 @@ public class Item {
         }
         else {
             System.out.println("Esse item não pode ser usado agora.");
-        }
-    }*/
+        }*/
+//    }
 
     }
 
