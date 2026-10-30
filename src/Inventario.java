@@ -4,7 +4,7 @@ import java.util.List;
 public class Inventario {
 
     private List<Item> itens = new ArrayList<>();
-    private int saldoMoedas = 0;
+    private int saldoMoedas = 100;
 
     // Adiciona um item
     public void adicionarItem(Item item) {
@@ -34,7 +34,7 @@ public class Inventario {
 
         for (Item item : itens) {
             item.mostrarInformacoes();
-            System.out.println("-------------------------");
+            System.out.println("                    ");
         }
     }
     // Getter
