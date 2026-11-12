@@ -32,9 +32,13 @@ public Protagonista(String nome, int vida, int dano,int defesa,double esquiva){
             vida = 0;
         }
     }
-        public int recuperarVida(int valorCura) {
-            return vida + valorCura;
+    public int recuperarVida(int valorCura) {
+        vida += valorCura;
+        if (vida > vidamaxima) {
+            vida = vidamaxima;
         }
+        return vida;
+    }
 
     public void equiparArma(int valorDano) {
         this.dano += valorDano;

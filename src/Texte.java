@@ -1,7 +1,7 @@
 public class Texte {
 
     public static void main(String[] Args) {
-
+        Protagonista heroi = new Protagonista("Hugo", 100, 15, 5, 0.1);
         Ferreiro arg = new Ferreiro("arg", 20, "nenhuma", "nenhuma", 1.1, "nenhuma");
 
         String nome = arg.Getnome();
@@ -9,8 +9,8 @@ public class Texte {
 
         System.out.println(nome);
         System.out.println(fala);
-        arg.melhorarArma(nome);
-        arg.forjarArma(nome);
+        arg.melhorarArma("Espada");
+        arg.forjarArma(heroi, "Espada de Ferro", 1, "Ferro");
 
         Alquimista fulano = new Alquimista("fulano de tal", 30, "nenhuma", "nenhuma", "nenhuma", 1.1);
 
