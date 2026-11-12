@@ -1,143 +1,218 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.*;
 
-public class Fase1 extends JFrame {
+public class Fase extends JFrame implements KeyListener {
 
-    private protagonista protagonista;
+    JPanel caverna;
 
-    private Monstro inimigo;
+    JLabel protagonista;
+    JLabel slime1;
+    JLabel slime2;
+    JLabel orc;
 
-    private JLabel lblFase;
-    private JLabel lblInimigo;
-    private JLabel lblVidaInimigo;
-    private JLabel lblMensagem;
+    int protagonistaX = 50;
+    int protagonistaY = 200;
 
-    private JButton btnAtacar;
-
-    private int inimigoAtual = 1;
-
-    public Fase1() {
-
-        protagonista = new protagonista("Herói");
-
-        inimigo = new Slime();
+    public Fase() {
 
         setTitle("Fase 1 - A Caverna");
-        setSize(600, 400);
+        setSize(800, 500);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
 
-        criarTela();
+
+        criarFase();
+
+        addKeyListener(this);
+        setFocusable(true);
 
         setVisible(true);
     }
 
-    private void criarTela() {
+    public void criarFase() {
 
-        setLayout(new BorderLayout());
+        caverna = new JPanel(null);
+        caverna.setBackground(Color.DARK_GRAY);
 
-        lblFase = new JLabel(
-                "FASE 1 - A CAVERNA",
-                SwingConstants.CENTER
+        // PROTAGONISTA
+        protagonista = new JLabel("P");
+        protagonista.setHorizontalAlignment(SwingConstants.CENTER);
+        protagonista.setVerticalAlignment(SwingConstants.CENTER);
+        protagonista.setForeground(Color.WHITE);
+        protagonista.setBackground(Color.BLUE);
+        protagonista.setOpaque(true);
+
+        protagonista.setBounds(
+                protagonistaX,
+                protagonistaY,
+                50,
+                50
         );
 
-        add(lblFase, BorderLayout.NORTH);
+        // SLIME 1
+        slime1 = new JLabel("S");
+        slime1.setHorizontalAlignment(SwingConstants.CENTER);
+        slime1.setVerticalAlignment(SwingConstants.CENTER);
+        slime1.setForeground(Color.WHITE);
+        slime1.setBackground(Color.GREEN);
+        slime1.setOpaque(true);
 
-        JPanel painelCentral = new JPanel();
-        painelCentral.setLayout(new GridLayout(3, 1));
-
-        lblInimigo = new JLabel(
-                "Inimigo: " + inimigo.getNome(),
-                SwingConstants.CENTER
+        slime1.setBounds(
+                220,
+                200,
+                50,
+                50
         );
 
-        lblVidaInimigo = new JLabel(
-                "Vida: " + inimigo.getVida(),
-                SwingConstants.CENTER
+        // SLIME 2
+        slime2 = new JLabel("S");
+        slime2.setHorizontalAlignment(SwingConstants.CENTER);
+        slime2.setVerticalAlignment(SwingConstants.CENTER);
+        slime2.setForeground(Color.WHITE);
+        slime2.setBackground(Color.GREEN);
+        slime2.setOpaque(true);
+
+        slime2.setBounds(
+                400,
+                200,
+                50,
+                50
         );
 
-        lblMensagem = new JLabel(
-                "Um Slime apareceu!",
-                SwingConstants.CENTER
+        // ORC - MINI BOSS
+        orc = new JLabel("O");
+        orc.setHorizontalAlignment(SwingConstants.CENTER);
+        orc.setVerticalAlignment(SwingConstants.CENTER);
+        orc.setForeground(Color.WHITE);
+        orc.setBackground(Color.RED);
+        orc.setOpaque(true);
+
+        orc.setBounds(
+                600,
+                200,
+                60,
+                60
         );
 
-        painelCentral.add(lblInimigo);
-        painelCentral.add(lblVidaInimigo);
-        painelCentral.add(lblMensagem);
+        // ADICIONANDO NA FASE
+        caverna.add(protagonista);
+        caverna.add(slime1);
+        caverna.add(slime2);
+        caverna.add(orc);
 
-        add(painelCentral, BorderLayout.CENTER);
-
-        btnAtacar = new JButton("ATACAR");
-
-        add(btnAtacar, BorderLayout.SOUTH);
-
-        btnAtacar.addActionListener(e -> atacar());
+        add(caverna);
     }
 
-    private void atacar() {
+    public void moverProtagonista(int x, int y) {
 
-        protagonista.atacar(inimigo);
+        protagonistaX = x;
+        protagonistaY = y;
 
-        lblVidaInimigo.setText(
-                "Vida: " + inimigo.getVida()
+        // Impede sair da tela pela esquerda
+        if (protagonistaX < 0) {
+            protagonistaX = 0;
+        }
+
+        // Impede sair da tela pelo topo
+        if (protagonistaY < 0) {
+            protagonistaY = 0;
+        }
+
+        // Impede sair pela direita
+        if (protagonistaX > caverna.getWidth() - protagonista.getWidth()) {
+            protagonistaX =
+                    caverna.getWidth() - protagonista.getWidth();
+        }
+
+        // Impede sair por baixo
+        if (protagonistaY > caverna.getHeight() - protagonista.getHeight()) {
+            protagonistaY =
+                    caverna.getHeight() - protagonista.getHeight();
+        }
+
+        protagonista.setLocation(
+                protagonistaX,
+                protagonistaY
         );
 
-        if (inimigo.getVida() <= 0) {
+        verificarColisao();
+    }
 
-            proximoInimigo();
+    public void verificarColisao() {
+
+        if (protagonista.getBounds().intersects(slime2.getBounds())) {
+
+            System.out.println("Você encontrou o segundo Slime!");
+
+        }
+
+        if (protagonista.getBounds().intersects(orc.getBounds())) {
+
+            System.out.println("Você encontrou o ORC - MINI BOSS!");
+
         }
     }
 
-    private void proximoInimigo() {
+    @Override
+    public void keyPressed(KeyEvent e) {
 
-        inimigoAtual++;
+        int tecla = e.getKeyCode();
 
-        if (inimigoAtual == 2) {
+        int velocidade = 10;
 
-            inimigo = new Slime();
+        // CIMA
+        if (tecla == KeyEvent.VK_W ||
+                tecla == KeyEvent.VK_UP) {
 
-            lblInimigo.setText(
-                    "Inimigo: " + inimigo.getNome()
-            );
-
-            lblVidaInimigo.setText(
-                    "Vida: " + inimigo.getVida()
-            );
-
-            lblMensagem.setText(
-                    "O segundo Slime apareceu!"
+            moverProtagonista(
+                    protagonistaX,
+                    protagonistaY - velocidade
             );
         }
 
-        else if (inimigoAtual == 3) {
+        // BAIXO
+        if (tecla == KeyEvent.VK_S ||
+                tecla == KeyEvent.VK_DOWN) {
 
-            inimigo = new Orc();
-
-            lblInimigo.setText(
-                    "MINI-CHEFE: " + inimigo.getNome()
-            );
-
-            lblVidaInimigo.setText(
-                    "Vida: " + inimigo.getVida()
-            );
-
-            lblMensagem.setText(
-                    "O Orc apareceu!"
+            moverProtagonista(
+                    protagonistaX,
+                    protagonistaY + velocidade
             );
         }
 
-        else {
+        // ESQUERDA
+        if (tecla == KeyEvent.VK_A ||
+                tecla == KeyEvent.VK_LEFT) {
 
-            lblMensagem.setText(
-                    "🏆 FASE CONCLUÍDA!"
+            moverProtagonista(
+                    protagonistaX - velocidade,
+                    protagonistaY
             );
-
-            btnAtacar.setEnabled(false);
         }
+
+        // DIREITA
+        if (tecla == KeyEvent.VK_D ||
+                tecla == KeyEvent.VK_RIGHT) {
+
+            moverProtagonista(
+                    protagonistaX + velocidade,
+                    protagonistaY
+            );
+        }
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+    }
+
+    @Override
+    public void keyTyped(KeyEvent e) {
     }
 
     public static void main(String[] args) {
 
-        new Fase1();
+        new Fase();
+
     }
 }

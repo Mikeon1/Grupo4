@@ -39,12 +39,12 @@ public class Monstro {
     public boolean estarVivo(){
         return vida > 0;
     }
-    public void atacar(protagonista) {
+    public void atacar(Protagonista x) {
           if (estarVivo()){
             return;
           }
           System.out.println(nome + " atacou!");
-              protagonista.receberDano(dano);
+              x.receberDano();
 
           }
     public void receberDano(int danoRecebido){
