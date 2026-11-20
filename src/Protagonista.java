@@ -1,43 +1,43 @@
 public class Protagonista {
 
-private String nome;
-private static int vida;
-private int dano;
-private int defesa;
-private double esquiva;
-private Inventario inventario;
-private final int vidamaxima;
+    private String nome;
+    private int vida;
+    private int dano;
+    private int defesa;
+    private double esquiva;
+    private Inventario inventario;
+    private final int vidamaxima;
 
-public Protagonista(String nome, int vida, int dano,int defesa,double esquiva){
-    this.nome=nome;
-    this.vida=vida;
-    this.dano=dano;
-    this.defesa=defesa;
-    this.esquiva=esquiva;
-    this.vidamaxima=vida;
-    this.inventario = new Inventario();
-}
-
-    public void causarDano(int danoCausado){
-        danoCausado = dano;// (+ dano arma + bonus)
+    public Protagonista(String nome, int vida, int dano, int defesa, double esquiva) {
+        this.nome = nome;
+        this.vidamaxima = Math.max(1, vida);
+        this.vida = Math.min(Math.max(0, vida), this.vidamaxima);
+        this.dano = Math.max(0, dano);
+        this.defesa = Math.max(0, defesa);
+        this.esquiva = esquiva;
+        this.inventario = new Inventario();
     }
 
-    public boolean estarvivo(){
-        return vida > 0;
+    public int calcularDanoTotal() {
+        return this.dano;
+    }
+
+    public boolean estarvivo() {
+        return this.vida > 0;
     }
 
     public void perderVida(int vidaperdida) {
-        vida = vida - vidaperdida;
-        if (vida < 0) {
-            vida = 0;
+        if (vidaperdida <= 0) {
+            return;
         }
+        this.vida = Math.max(0, this.vida - vidaperdida);
     }
+
     public int recuperarVida(int valorCura) {
-        vida += valorCura;
-        if (vida > vidamaxima) {
-            vida = vidamaxima;
+        if (valorCura > 0) {
+            this.vida = Math.min(this.vidamaxima, this.vida + valorCura);
         }
-        return vida;
+        return this.vida;
     }
 
     public void equiparArma(int valorDano) {
@@ -59,7 +59,13 @@ public Protagonista(String nome, int vida, int dano,int defesa,double esquiva){
     }
 
     public void setVida(int vida) {
-        this.vida = vida;
+        if (vida < 0) {
+            this.vida = 0;
+        } else if (vida > this.vidamaxima) {
+            this.vida = this.vidamaxima;
+        } else {
+            this.vida = vida;
+        }
     }
 
     public int getDano() {
@@ -93,5 +99,4 @@ public Protagonista(String nome, int vida, int dano,int defesa,double esquiva){
     public Inventario getInventario() {
         return inventario;
     }
-
 }
