@@ -14,7 +14,7 @@ public class Protagonista {
         this.vida = Math.min(Math.max(0, vida), this.vidamaxima);
         this.dano = Math.max(0, dano);
         this.defesa = Math.max(0, defesa);
-        this.esquiva = esquiva;
+        this.esquiva = Math.min(1.0, Math.max(0.0, esquiva));
         this.inventario = new Inventario();
     }
 
@@ -73,7 +73,7 @@ public class Protagonista {
     }
 
     public void setDano(int dano) {
-        this.dano = dano;
+        this.dano = Math.max(0, dano);
     }
 
     public int getDefesa() {
@@ -81,7 +81,7 @@ public class Protagonista {
     }
 
     public void setDefesa(int defesa) {
-        this.defesa = defesa;
+        this.defesa = Math.max(0, defesa);
     }
 
     public double getEsquiva() {
@@ -89,7 +89,7 @@ public class Protagonista {
     }
 
     public void setEsquiva(double esquiva) {
-        this.esquiva = esquiva;
+        this.esquiva = Math.min(1.0, Math.max(0.0, esquiva));
     }
 
     public int getVidamaxima() {

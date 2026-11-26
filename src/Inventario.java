@@ -24,7 +24,7 @@ public class Inventario {
         }
     }
 
-    // Mostra o item
+    // Mostra os itens
     public void mostrarInventario() {
         System.out.println(" ITENS NO INVENTÁRIO ");
         if (itens.isEmpty()) {
@@ -37,8 +37,8 @@ public class Inventario {
             System.out.println("                    ");
         }
     }
-    // Getter
 
+    // Getters
     public List<Item> getItens() {
         return List.copyOf(itens); // Encapsulamento
     }
@@ -47,9 +47,20 @@ public class Inventario {
         return saldoMoedas;
     }
 
-// Método para gastar moedas
+    // Método para receber moedas
+    public void receberMoedas(int valor) {
+        if (valor > 0) {
+            saldoMoedas += valor;
+            System.out.println("Você recebeu " + valor + " moedas. Saldo atual: " + saldoMoedas);
+        }
+    }
 
+    // Método para gastar moedas
     public void gastarMoedas(int valor) {
+        if (valor <= 0) {
+            System.out.println("Valor inválido para gasto.");
+            return;
+        }
         if (saldoMoedas >= valor) {
             saldoMoedas -= valor;
             System.out.println("Compra realizada. Restam " + saldoMoedas + " moedas.");
@@ -58,4 +69,3 @@ public class Inventario {
         }
     }
 }
-
